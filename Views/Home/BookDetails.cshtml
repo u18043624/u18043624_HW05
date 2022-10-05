@@ -1,0 +1,38 @@
+﻿@model List<u18043624_HW05.Models.BorrowViewModel>
+@using u18043624_HW05.Models;
+@{
+    ViewBag.Title = "BookDetails";
+}
+
+<h2>Book Details</h2>
+
+@{
+    <table class="table table-striped table-dark">
+
+        <thead>
+            <tr>
+                <th scope="col">Yellow Wood - Book Avaliable</th>
+                <th><button type="button" class="btn btn-primary btn-sm btn-block btn-danger" value="ViewStudents" onclick="location.href='@Url.Action("Students", "Home")'">View Students</button></th>
+            </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Taken Date</th>
+                <th scope="col">Broughth Date</th>
+                <th scope="col">Borrowed By</th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (BorrowViewModel details in Model)
+            {
+                <tr>
+                    <th scope="row">@details.borrowID</th>
+                    <td>@details.takenDate</td>
+                    <td>@details.broughtDate</td>
+                    <td>@details.student.name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
